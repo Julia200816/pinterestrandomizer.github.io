@@ -14,7 +14,7 @@ import (
 )
 
 type PinterestClient struct {
-	AppID              1478464
+	AppID              string
 	Secret             string
 	MainURL            string
 	BaseURL            string
@@ -83,11 +83,11 @@ type Image struct {
 func NewClient() *PinterestClient {
 
 	return &PinterestClient{
-		AppID:       os.Getenv("1478464"),
+		AppID:       os.Getenv("CLIENT_ID"),
 		Secret:      os.Getenv("CLIENT_SECRET"),
-		MainURL:     "https://julias-pinterest-randomizer.osc-fr1.scalingo.io/",
+		MainURL:     "https://pinterest-randomizer.osc-fr1.scalingo.io/",
 		BaseURL:     "https://api.pinterest.com/v5",
-		RedirectUri: "https://julias-pinterest-randomizer.osc-fr1.scalingo.io/redirect/",
+		RedirectUri: "https://pinterest-randomizer.osc-fr1.scalingo.io/redirect/",
 		Scopes:      "user_accounts:read,catalogs:read,boards:read,boards:read_secret,pins:read,pins:read_secret",
 		HttpClient: &http.Client{
 			Timeout: 10 * time.Second,
@@ -97,7 +97,7 @@ func NewClient() *PinterestClient {
 }
 
 func (client *PinterestClient) GetAuthUri() string {
-	return "https://www.pinterest.com/oauth/?&client_id=1478464" + client.AppID + "&redirect_uri=" + client.RedirectUri + "&response_type=code" + "&scope=" + client.Scopes
+	return "https://www.pinterest.com/oauth/?&client_id=" + client.AppID + "&redirect_uri=" + client.RedirectUri + "&response_type=code" + "&scope=" + client.Scopes
 }
 
 func (client *PinterestClient) FetchAccessToken(codeKey string) error {
