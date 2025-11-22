@@ -83,7 +83,7 @@ type Image struct {
 func NewClient() *PinterestClient {
 
 	return &PinterestClient{
-		AppID:       os.Getenv("CLIENT_ID"),
+		AppID:       os.Getenv("1478464"),
 		Secret:      os.Getenv("CLIENT_SECRET"),
 		MainURL:     "https://julias-pinterest-randomizer.osc-fr1.scalingo.io/",
 		BaseURL:     "https://api.pinterest.com/v5",
