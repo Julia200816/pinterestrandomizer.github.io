@@ -85,9 +85,9 @@ func NewClient() *PinterestClient {
 	return &PinterestClient{
 		AppID:       os.Getenv("1537597"),
 		Secret:      os.Getenv("CLIENT_SECRET"),
-		MainURL:     "https://pinterest-randomizer.osc-fr1.scalingo.io/",
+		MainURL:     "https://julias-pinterest-randomizer.osc-fr1.scalingo.io/",
 		BaseURL:     "https://api.pinterest.com/v5",
-		RedirectUri: "https://pinterest-randomizer.osc-fr1.scalingo.io/redirect/",
+		RedirectUri: "https://julias-pinterest-randomizer.osc-fr1.scalingo.io/redirect/",
 		Scopes:      "user_accounts:read,catalogs:read,boards:read,boards:read_secret,pins:read,pins:read_secret",
 		HttpClient: &http.Client{
 			Timeout: 10 * time.Second,
