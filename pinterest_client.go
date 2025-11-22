@@ -86,7 +86,7 @@ func NewClient() *PinterestClient {
 		AppID:       os.Getenv("1537597"),
 		Secret:      os.Getenv("CLIENT_SECRET"),
 		MainURL:     "https://julias-pinterest-randomizer.osc-fr1.scalingo.io/",
-		BaseURL:     "https://api.pinterest.com/v5",
+		BaseURL:     "https://developers.pinterest.com/docs/api/v5/",
 		RedirectUri: "https://julias-pinterest-randomizer.osc-fr1.scalingo.io/redirect/",
 		Scopes:      "user_accounts:read,catalogs:read,boards:read,boards:read_secret,pins:read,pins:read_secret",
 		HttpClient: &http.Client{
@@ -97,7 +97,7 @@ func NewClient() *PinterestClient {
 }
 
 func (client *PinterestClient) GetAuthUri() string {
-	return "https://www.pinterest.com/oauth/?&client_id=1537597" + client.AppID + "&redirect_uri=" + client.RedirectUri + "&response_type=code" + "&scope=" + client.Scopes
+	return "https://www.pinterest.com/oauth/?&client_id=1537597" + client.AppID + "&redirect_uri=https://julias-pinterest-randomizer.osc-fr1.scalingo.io/redirect" + client.RedirectUri + "&response_type=code" + "&scope=" + client.Scopes
 }
 
 func (client *PinterestClient) FetchAccessToken(codeKey string) error {
