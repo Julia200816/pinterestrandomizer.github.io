@@ -83,7 +83,7 @@ type Image struct {
 func NewClient() *PinterestClient {
 
 	return &PinterestClient{
-		AppID:       os.Getenv("1537597"),
+		AppID:       os.Getenv("1478464"),
 		Secret:      os.Getenv("CLIENT_SECRET"),
 		MainURL:     "https://julias-pinterest-randomizer.osc-fr1.scalingo.io/",
 		BaseURL:     "https://developers.pinterest.com/docs/api/v5/",
@@ -97,7 +97,7 @@ func NewClient() *PinterestClient {
 }
 
 func (client *PinterestClient) GetAuthUri() string {
-	return "https://www.pinterest.com/oauth/?&client_id=1537597" + client.AppID + "&redirect_uri=https://julias-pinterest-randomizer.osc-fr1.scalingo.io/redirect" + client.RedirectUri + "&response_type=code" + "&scope=" + client.Scopes
+	return "https://www.pinterest.com/oauth/?&client_id=1478464" + client.AppID + "&redirect_uri=https://julias-pinterest-randomizer.osc-fr1.scalingo.io/redirect" + client.RedirectUri + "&response_type=code" + "&scope=" + client.Scopes
 }
 
 func (client *PinterestClient) FetchAccessToken(codeKey string) error {
